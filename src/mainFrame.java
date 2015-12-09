@@ -4,15 +4,6 @@
  * and open the template in the editor.
  */
 
-
-import java.awt.Component;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
-
-
 /**
  *
  * @author Itamar Talmon
@@ -49,7 +40,6 @@ public class mainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1366, 768));
-        setResizable(false);
 
         toggle_button.setText("Pics \\ Words");
         toggle_button.addActionListener(new java.awt.event.ActionListener() {
@@ -107,11 +97,7 @@ public class mainFrame extends javax.swing.JFrame {
         menu_bar.add(jMenu2);
 
         setJMenuBar(menu_bar);
-        
-        addIconsToList(imageList);
-        
-        //choose_pic_panel.add((ImageIcon)imageList.get(0));
-        
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,19 +154,7 @@ public class mainFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public ArrayList addIconsToList(ArrayList x) {
-        imageList.add(cat16.getImage());
-        imageList.add(cat24.getImage());
-        imageList.add(cat32.getImage());
-        imageList.add(cat48.getImage());
-        imageList.add(cat256.getImage());
-        return x;
-    }
-    
-    
     public static void main(String args[]) {
-    	
-    	
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -223,13 +197,5 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JButton send_button;
     private javax.swing.JTextField text_field;
     private javax.swing.JToggleButton toggle_button;
-    // End of variables declaration 
-    String str = "C:\\Users\\Itamar Talmon\\workspace\\chat_2015\\Images\\150.jpg";
-    private final ImageIcon cat16 = new ImageIcon(str);
-    private final ImageIcon cat24 = new ImageIcon(str);
-    private final ImageIcon cat32 = new ImageIcon(str);
-    private final ImageIcon cat48 = new ImageIcon(str);
-    private final ImageIcon cat256 = new ImageIcon(str);
-    public final ArrayList imageList = new ArrayList();
-    
+    // End of variables declaration                   
 }

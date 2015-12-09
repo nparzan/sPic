@@ -6,7 +6,7 @@ public class MainTest {
 	static String path = "C:\\Images";
 	static String im_path;
 	//TEST
-	public static void main(String[] args) {
+	public static void main1(String[] args) {
 		List<Entry> dictio = Parser.get_dictionary(path);
 		for (int i = 0; i < dictio.size(); i++) {
 			System.out.println("Entry " + dictio.get(i).word);

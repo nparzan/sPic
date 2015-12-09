@@ -1,3 +1,5 @@
+import java.util.List;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +15,8 @@ public class mainFrame extends javax.swing.JFrame {
     /**
      * Creates new form mainFrame
      */
+	String path = "C:\\Images";
+	List<Entry> dictio = Parser.get_dictionary(path);
     public mainFrame() {
         initComponents();
     }
@@ -53,7 +57,11 @@ public class mainFrame extends javax.swing.JFrame {
         send_button.setText("Send");
         send_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                send_buttonActionPerformed(evt);
+                String str = text_field.getText();
+                text_field.setText("");
+                System.out.println(str);
+                List<Entry> entries = Parser.get_entries(path, str, dictio);
+                
             }
         });
 

@@ -28,12 +28,14 @@ public class mainFrame extends javax.swing.JFrame {
 	List<Entry> dictio = Parser.get_dictionary(path);
     public mainFrame() {
         initComponents();
+        //start deans change
         EventQueue.invokeLater(new Runnable() {
             //@Override
             public void run() {
                 new Echo(Kind.Server , text_field , textArea , send_button ).start();
             }
         });
+        //end deans change
     }
 
     /**
@@ -44,10 +46,12 @@ public class mainFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
+    	//deans change:
     	textArea =new javax.swing.JTextArea();
         toggle_button = new javax.swing.JToggleButton();
         send_button = new javax.swing.JButton();
         backspace_button = new javax.swing.JButton();
+        //deans change:
         chat_panel = new javax.swing.JScrollPane(textArea);
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
@@ -262,6 +266,7 @@ public class mainFrame extends javax.swing.JFrame {
     //Deans changes:
     /*todo-boolean named IMAGE connected to toggle*/ 
     private javax.swing.JTextArea textArea ;
+    //end deans change
     // Variables declaration - do not modify                     
     private javax.swing.JButton backspace_button;
     private javax.swing.JScrollPane chat_panel;

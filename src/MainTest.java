@@ -5,7 +5,7 @@ import java.io.File;
 public class MainTest {
 	static String path = "C:\\Images";
 	static String im_path;
-
+	//TEST
 	public static void main(String[] args) {
 		List<Entry> dictio = Parser.get_dictionary(path);
 		for (int i = 0; i < dictio.size(); i++) {

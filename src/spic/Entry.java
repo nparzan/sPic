@@ -1,3 +1,4 @@
+package spic;
 import java.io.File;
 
 public class Entry {

@@ -1,4 +1,12 @@
+package spic;
+import java.awt.EventQueue;
 import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import spic.Echo.Kind;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,6 +18,7 @@ import java.util.List;
  *
  * @author Itamar Talmon
  */
+//try to create outside file enum kind
 public class mainFrame extends javax.swing.JFrame {
 
     /**
@@ -19,6 +28,12 @@ public class mainFrame extends javax.swing.JFrame {
 	List<Entry> dictio = Parser.get_dictionary(path);
     public mainFrame() {
         initComponents();
+        EventQueue.invokeLater(new Runnable() {
+            //@Override
+            public void run() {
+                new Echo(Kind.Server , text_field , textArea , send_button ).start();
+            }
+        });
     }
 
     /**
@@ -29,11 +44,11 @@ public class mainFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+    	textArea =new javax.swing.JTextArea();
         toggle_button = new javax.swing.JToggleButton();
         send_button = new javax.swing.JButton();
         backspace_button = new javax.swing.JButton();
-        chat_panel = new javax.swing.JScrollPane();
+        chat_panel = new javax.swing.JScrollPane(textArea);
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         text_field = new javax.swing.JTextField();
@@ -244,7 +259,9 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
     }
-
+    //Deans changes:
+    /*todo-boolean named IMAGE connected to toggle*/ 
+    private javax.swing.JTextArea textArea ;
     // Variables declaration - do not modify                     
     private javax.swing.JButton backspace_button;
     private javax.swing.JScrollPane chat_panel;

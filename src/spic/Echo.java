@@ -1,3 +1,4 @@
+package spic;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,8 +24,8 @@ public class Echo implements ActionListener, Runnable {
 	private Thread thread;
 	private Kind kind;
 
-	public static enum Kind {
-
+	
+	public enum Kind {
 		Client(100, "Trying"), Server(500, "Awaiting");
 		private int offset;
 		private String activity;
@@ -33,10 +34,10 @@ public class Echo implements ActionListener, Runnable {
 			this.offset = offset;
 			this.activity = activity;
 		}
-	}
 
-	public Echo(Kind kind, JTextField tf, JTextArea ta, JButton send) {
-		this.kind = kind;
+	}
+	public Echo(Kind server, JTextField tf, JTextArea ta, JButton send) {
+		this.kind = server;
 		this.tf = tf;
 		this.ta = ta;
 		this.send = send;
@@ -46,7 +47,7 @@ public class Echo implements ActionListener, Runnable {
 		DefaultCaret caret = (DefaultCaret) ta.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		// display(kind.activity + HOST + " on port " + PORT);
-		thread = new Thread(this, kind.toString());
+		thread = new Thread(this, server.toString());
 	}
 
 	public void start() {

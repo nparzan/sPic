@@ -433,8 +433,8 @@ public class GUI_final extends javax.swing.JFrame {
     private javax.swing.JTextArea textArea;
     private javax.swing.JTextField text_field;
     private javax.swing.JToggleButton toggle_button;
-    private static boolean son_mode = true;
-    private static int image_index = 0;
-    private static List<File> image_sentence;
+    static boolean son_mode = true;
+    static int image_index = 0;
+    static List<File> image_sentence;
     // End of variables declaration                   
 }

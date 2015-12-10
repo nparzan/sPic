@@ -304,7 +304,8 @@ public class GUI_final extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void toggle_buttonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        if(toggle_button.getText().equals("Image")){
+        if(son_mode){
+        	son_mode = false;
             toggle_button.setText("Text");
             choose_pic_panel.setVisible(false);
             messege_panel.setVisible(false);
@@ -314,6 +315,7 @@ public class GUI_final extends javax.swing.JFrame {
             right_button.setVisible(false);
         }
         else{
+        	son_mode = true;
             toggle_button.setText("Image");
             choose_pic_panel.setVisible(true);
             messege_panel.setVisible(true);
@@ -426,5 +428,6 @@ public class GUI_final extends javax.swing.JFrame {
     private javax.swing.JTextArea textArea;
     private javax.swing.JTextField text_field;
     private javax.swing.JToggleButton toggle_button;
+    private static boolean son_mode = true;
     // End of variables declaration                   
 }

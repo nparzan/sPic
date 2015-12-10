@@ -8,6 +8,7 @@ package spic;
 import java.awt.EventQueue;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -341,7 +342,10 @@ public class GUI_final extends javax.swing.JFrame {
     }                                             
 
     private void backspace_buttonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
+    	if(!image_sentence.isEmpty()){
+            image_sentence.remove(image_sentence.size()-1);
+            //System.out.println(Arrays.toString(image_sentence.toArray()));
+        	}
     }                                                
 
     private void text_fieldActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -375,6 +379,7 @@ public class GUI_final extends javax.swing.JFrame {
     	int index = image_index + i -1;
     	File img = dictio.get(index).image;
         image_sentence.add(img);
+        //System.out.println(Arrays.toString(image_sentence.toArray())); //bar
         //print_image(img, messege_panel, 0,0);  	
     }
 

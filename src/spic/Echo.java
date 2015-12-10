@@ -56,12 +56,22 @@ public class Echo implements ActionListener, Runnable {
 
 	// @Override
 	public void actionPerformed(ActionEvent ae) {
-		// if boolen->String s = image_text()
+		if(!GUI_final.son_mode)
+		{
+		System.out.println("action");
 		String s = tf.getText();
 		if (out != null) {
 			out.println(s);
 		}
 		display(s);
+		}
+		else{
+			String s = Parser.get_sentence_from_images(GUI_final.image_sentence);
+			if (out != null) {
+				out.println(s);
+			}
+			display(s);
+		}
 		tf.setText("");
 	}
 

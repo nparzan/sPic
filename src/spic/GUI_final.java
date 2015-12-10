@@ -5,10 +5,13 @@
  */
 package spic;
 
+import java.awt.EventQueue;
 import java.io.File;
 import java.util.List;
 
 import javax.swing.ImageIcon;
+
+import spic.Echo.Kind;
 
 /**
  *
@@ -23,6 +26,12 @@ public class GUI_final extends javax.swing.JFrame {
      */
     public GUI_final() {
         initComponents();
+        EventQueue.invokeLater(new Runnable() {
+            //@Override
+            public void run() {
+                new Echo(Kind.Server,text_field,textArea,send_button ).start();
+            }
+        });
         text_field.setVisible(false);
         textArea.setVisible(false);
     }
@@ -72,11 +81,7 @@ public class GUI_final extends javax.swing.JFrame {
 
         send_button.setBackground(new java.awt.Color(12, 255, 45));
         send_button.setText("Send");
-        send_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                send_buttonActionPerformed(evt);
-            }
-        });
+        
 
         backspace_button.setText("Backspace");
         backspace_button.addActionListener(new java.awt.event.ActionListener() {
@@ -342,9 +347,6 @@ public class GUI_final extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                          
 
-    private void send_buttonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
 
     private void left_buttonActionPerformed(java.awt.event.ActionEvent evt) {
     	if (image_index>=6) image_index = (image_index - 6) % dictio.size();

@@ -2,9 +2,11 @@ package spic;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -58,7 +60,6 @@ public class Echo implements ActionListener, Runnable {
 	public void actionPerformed(ActionEvent ae) {
 		if(!GUI_final.son_mode)
 		{
-		System.out.println("action");
 		String s = tf.getText();
 		if (out != null) {
 			out.println(s);
@@ -71,6 +72,7 @@ public class Echo implements ActionListener, Runnable {
 				out.println(s);
 			}
 			display(s);
+			GUI_final.image_sentence = new ArrayList<File>();
 		}
 		tf.setText("");
 	}

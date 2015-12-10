@@ -5,12 +5,17 @@
  */
 package spic;
 
+import java.io.File;
+import java.util.List;
+
 /**
  *
  * @author Itamar Talmon
  */
 public class GUI_final extends javax.swing.JFrame {
-
+	String path = "C:\\Images";
+	List<Entry> dictio = Parser.get_dictionary(path);
+	
     /**
      * Creates new form GUI_final
      */
@@ -429,5 +434,7 @@ public class GUI_final extends javax.swing.JFrame {
     private javax.swing.JTextField text_field;
     private javax.swing.JToggleButton toggle_button;
     private static boolean son_mode = true;
+    private static int image_index = 0;
+    private static List<File> image_sentence;
     // End of variables declaration                   
 }

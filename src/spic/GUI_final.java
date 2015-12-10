@@ -24,8 +24,7 @@ import spic.Echo.Kind;
  * @author Itamar Talmon
  */
 public class GUI_final extends javax.swing.JFrame {
-	String path = "C:\\Images";
-	List<Entry> dictio = Parser.get_dictionary(path);
+	
 	
     /**
      * Creates new form GUI_final
@@ -65,7 +64,7 @@ public class GUI_final extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         UpperLayeredPane = new javax.swing.JLayeredPane();
-        chat_panel = new javax.swing.JScrollPane();
+        chat_panel = new javax.swing.JPanel();
         textArea = new javax.swing.JTextArea();
         left_button = new javax.swing.JButton();
         right_button = new javax.swing.JButton();
@@ -235,7 +234,9 @@ public class GUI_final extends javax.swing.JFrame {
         textArea.setColumns(20);
         textArea.setFont(new java.awt.Font("FrankRuehl", 0, 36)); // NOI18N
         textArea.setRows(5);
-        chat_panel.setViewportView(textArea);
+        
+        chat_panel.add(textArea);
+        
 
         UpperLayeredPane.setLayer(chat_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -425,6 +426,13 @@ public class GUI_final extends javax.swing.JFrame {
     		panel.add(picLabel);
     		picLabel.setSize(150, 150);
     		picLabel.setLocation(x, y);
+    		
+    		/*JLabel picLabel2 = new JLabel(new ImageIcon(myPicture));
+    		chat_panel.add(picLabel2);
+    		
+    		picLabel2.grabFocus();
+    		picLabel2.setSize(150, 150);
+    	    picLabel2.setVisible(true);*/
         }
     	catch (Exception e){
     		//
@@ -477,7 +485,7 @@ public class GUI_final extends javax.swing.JFrame {
     private javax.swing.JLayeredPane LowerLayeredPane;
     private javax.swing.JLayeredPane UpperLayeredPane;
     private javax.swing.JButton backspace_button;
-    private javax.swing.JScrollPane chat_panel;
+    static javax.swing.JPanel chat_panel;
     private javax.swing.JPanel choose_pic_panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -498,5 +506,7 @@ public class GUI_final extends javax.swing.JFrame {
     static boolean son_mode = true;
     static int image_index = 0;
     static List<File> image_sentence = new ArrayList<File>();
+    static String path = "C:\\Images";
+	static List<Entry> dictio = Parser.get_dictionary(path);
     // End of variables declaration                   
 }

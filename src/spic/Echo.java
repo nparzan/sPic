@@ -1,22 +1,28 @@
 package spic;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.DefaultCaret;
 
 public class Echo implements ActionListener, Runnable {
 
-	private static final String HOST = "10.0.0.1";
+	private static final String HOST = "127.0.0.1";
 	private static final int PORT = 12345;
 	private final JTextField tf;
 	private final JTextArea ta;
@@ -65,8 +71,40 @@ public class Echo implements ActionListener, Runnable {
 			out.println(s);
 		}
 		display(s);
+		
+		
+		/*try{
+			GUI_final.chat_panel.removeAll();
+			GUI_final.chat_panel.revalidate();
+			GUI_final.chat_panel.repaint();
+			for (int i=0; i < entries.size(); i++){
+				
+				BufferedImage myPicture = ImageIO.read(entries.get(i).image);
+	    		JLabel picLabel2 = new JLabel(new ImageIcon(myPicture));
+	    		GUI_final.chat_panel.add(picLabel2);
+	    		
+	    		picLabel2.setSize(150, 150);
+	    		picLabel2.setLocation(200, 200);
+			}
 		}
-		else{
+		catch (Exception e){}*/
+		}else{
+			try{
+				GUI_final.chat_panel.removeAll();
+				GUI_final.chat_panel.revalidate();
+				GUI_final.chat_panel.repaint();
+				for (int i=0; i < GUI_final.image_sentence.size(); i++){
+					
+					BufferedImage myPicture = ImageIO.read(GUI_final.image_sentence.get(i));
+		    		JLabel picLabel2 = new JLabel(new ImageIcon(myPicture));
+		    		GUI_final.chat_panel.add(picLabel2);
+		    		Dimension s=GUI_final.chat_panel.getSize();
+		    		System.out.println("Size "+s.height +" and "+ s.width);
+		    		picLabel2.setSize(150, 150);
+		    		picLabel2.setLocation(200, 200);
+				}
+			}
+			catch (Exception e){}
 			String s = Parser.get_sentence_from_images(GUI_final.image_sentence);
 			if (out != null) {
 				out.println(s);
@@ -92,7 +130,26 @@ public class Echo implements ActionListener, Runnable {
 			out = new PrintWriter(socket.getOutputStream(), true);
 			//display("Connected");
 			while (true) {
-				display(in.nextLine());
+				if (!GUI_final.son_mode) display(in.nextLine());
+				else{
+					String s = in.nextLine();
+					List<Entry> entries = Parser.get_entries(GUI_final.path, s, GUI_final.dictio);
+					try{
+						GUI_final.chat_panel.removeAll();
+						GUI_final.chat_panel.revalidate();
+						GUI_final.chat_panel.repaint();
+						for (int i=0; i < entries.size(); i++){
+							
+							BufferedImage myPicture = ImageIO.read(entries.get(i).image);
+				    		JLabel picLabel2 = new JLabel(new ImageIcon(myPicture));
+				    		GUI_final.chat_panel.add(picLabel2);
+				    		
+				    		picLabel2.setSize(150, 150);
+				    		picLabel2.setLocation(200, 200);
+						}
+					}
+					catch (Exception e){}
+				}
 			}
 		} catch (Exception e) {
 			display(e.getMessage());

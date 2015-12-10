@@ -7,6 +7,7 @@ package spic;
 
 import java.awt.EventQueue;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -368,31 +369,38 @@ public class GUI_final extends javax.swing.JFrame {
         jButton5.setIcon(new ImageIcon(dictio.get((image_index+4)%dictio.size()).image.getPath()));
         jButton6.setIcon(new ImageIcon(dictio.get((image_index+5)%dictio.size()).image.getPath()));
         
-    }                                            
+    }                       
+    
+    private void addPic2Sentence(int i){
+    	int index = image_index + i -1;
+    	File img = dictio.get(index).image;
+        image_sentence.add(img);
+        //print_image(img, messege_panel, 0,0);  	
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	addPic2Sentence(1);
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	addPic2Sentence(3);
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	addPic2Sentence(2);
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	addPic2Sentence(4);
     }                                        
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	addPic2Sentence(5);
     }                                        
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
+    	addPic2Sentence(6);
+    }  
 
     /**
      * @param args the command line arguments
@@ -453,6 +461,6 @@ public class GUI_final extends javax.swing.JFrame {
     private javax.swing.JToggleButton toggle_button;
     static boolean son_mode = true;
     static int image_index = 0;
-    static List<File> image_sentence;
+    static List<File> image_sentence = new ArrayList<File>();
     // End of variables declaration                   
 }

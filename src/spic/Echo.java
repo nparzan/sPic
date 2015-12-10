@@ -89,7 +89,7 @@ public class Echo implements ActionListener, Runnable {
 			}
 			in = new Scanner(socket.getInputStream());
 			out = new PrintWriter(socket.getOutputStream(), true);
-			display("Connected");
+			//display("Connected");
 			while (true) {
 				display(in.nextLine());
 			}

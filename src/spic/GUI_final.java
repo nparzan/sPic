@@ -348,7 +348,12 @@ public class GUI_final extends javax.swing.JFrame {
     private void backspace_buttonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
     	if(!image_sentence.isEmpty()){
             image_sentence.remove(image_sentence.size()-1);
-            //System.out.println(Arrays.toString(image_sentence.toArray()));
+            clean_panel(messege_panel);
+            int i = 1;
+            for (File f : image_sentence){
+            	print_image(f,messege_panel, 150*(i-1) +5*i , 1);
+            	i++;
+            }
         	}
     }                                                
 
@@ -383,8 +388,10 @@ public class GUI_final extends javax.swing.JFrame {
     	int index = image_index + i -1;
     	File img = dictio.get(index).image;
         image_sentence.add(img);
-        //System.out.println(Arrays.toString(image_sentence.toArray())); //bar
-        //print_image(img, messege_panel, 0,0);  	
+        int s = image_sentence.size();
+        print_image(img,messege_panel, 150*(s-1) +5*s , 1);
+        System.out.println(Arrays.toString(image_sentence.toArray()));
+        
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -425,7 +432,7 @@ public class GUI_final extends javax.swing.JFrame {
     	
     }
     
-    private void clean_panel(JPanel panel){
+    static void clean_panel(JPanel panel){
     	panel.removeAll();
     	panel.revalidate();
     	panel.repaint();
@@ -482,7 +489,7 @@ public class GUI_final extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JButton left_button;
     private javax.swing.JMenuBar menu_bar;
-    private javax.swing.JPanel messege_panel;
+    static javax.swing.JPanel messege_panel;
     private javax.swing.JButton right_button;
     private javax.swing.JButton send_button;
     private javax.swing.JTextArea textArea;

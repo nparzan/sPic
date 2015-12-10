@@ -73,6 +73,7 @@ public class Echo implements ActionListener, Runnable {
 			}
 			display(s);
 			GUI_final.image_sentence = new ArrayList<File>();
+			GUI_final.clean_panel(GUI_final.messege_panel);
 		}
 		tf.setText("");
 	}

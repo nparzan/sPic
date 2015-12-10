@@ -5,7 +5,10 @@
  */
 package spic;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Frame;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -34,7 +38,7 @@ public class GUI_final extends javax.swing.JFrame {
         EventQueue.invokeLater(new Runnable() {
             //@Override
             public void run() {
-                new Echo(Kind.Server,text_field,textArea,send_button ).start();
+                new Echo(Kind.Client,text_field,textArea,send_button ).start();
             }
         });
         text_field.setVisible(false);
@@ -49,7 +53,7 @@ public class GUI_final extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+    	setLayout(new BorderLayout());
         toggle_button = new javax.swing.JToggleButton();
         send_button = new javax.swing.JButton();
         backspace_button = new javax.swing.JButton();
@@ -318,7 +322,7 @@ public class GUI_final extends javax.swing.JFrame {
                         .addComponent(backspace_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-
+        this.setExtendedState( this.getExtendedState()|JFrame.MAXIMIZED_BOTH );
         pack();
     }// </editor-fold>                        
 
@@ -391,7 +395,6 @@ public class GUI_final extends javax.swing.JFrame {
         image_sentence.add(img);
         int s = image_sentence.size();
         print_image(img,messege_panel, 150*(s-1) +5*s , 1);
-        System.out.println(Arrays.toString(image_sentence.toArray()));
         
     }
 
@@ -509,4 +512,6 @@ public class GUI_final extends javax.swing.JFrame {
     static String path = "C:\\Images";
 	static List<Entry> dictio = Parser.get_dictionary(path);
     // End of variables declaration                   
+
+
 }

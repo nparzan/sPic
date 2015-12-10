@@ -15,6 +15,7 @@ import java.util.Scanner;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -22,7 +23,7 @@ import javax.swing.text.DefaultCaret;
 
 public class Echo implements ActionListener, Runnable {
 
-	private static final String HOST = "127.0.0.1";
+	private static final String HOST = "192.168.43.229";
 	private static final int PORT = 12345;
 	private final JTextField tf;
 	private final JTextArea ta;
@@ -99,7 +100,6 @@ public class Echo implements ActionListener, Runnable {
 		    		JLabel picLabel2 = new JLabel(new ImageIcon(myPicture));
 		    		GUI_final.chat_panel.add(picLabel2);
 		    		Dimension s=GUI_final.chat_panel.getSize();
-		    		System.out.println("Size "+s.height +" and "+ s.width);
 		    		picLabel2.setSize(150, 150);
 		    		picLabel2.setLocation(200, 200);
 				}
@@ -147,6 +147,9 @@ public class Echo implements ActionListener, Runnable {
 				    		picLabel2.setSize(150, 150);
 				    		picLabel2.setLocation(200, 200);
 						}
+						GUI_final.chat_panel.revalidate();
+						GUI_final.chat_panel.repaint();
+						
 					}
 					catch (Exception e){}
 				}

@@ -50,7 +50,7 @@ public class GUI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        toggle_button.setLabel("Image");
+        toggle_button.setText("Image");
         toggle_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toggle_buttonActionPerformed(evt);

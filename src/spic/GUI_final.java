@@ -6,12 +6,16 @@
 package spic;
 
 import java.awt.EventQueue;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import spic.Echo.Kind;
 
@@ -406,6 +410,26 @@ public class GUI_final extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
     	addPic2Sentence(6);
     }  
+    
+    private void print_image(File file,JPanel panel, int x , int y) {
+    	try{
+    		BufferedImage myPicture = ImageIO.read(file);
+    		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+    		panel.add(picLabel);
+    		picLabel.setSize(150, 150);
+    		picLabel.setLocation(x, y);
+        }
+    	catch (Exception e){
+    		//
+    	}
+    	
+    }
+    
+    private void clean_panel(JPanel panel){
+    	panel.removeAll();
+    	panel.revalidate();
+    	panel.repaint();
+    }
 
     /**
      * @param args the command line arguments

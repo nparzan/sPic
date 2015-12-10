@@ -8,6 +8,8 @@ package spic;
 import java.io.File;
 import java.util.List;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Itamar Talmon
@@ -108,42 +110,42 @@ public class GUI_final extends javax.swing.JFrame {
 
         choose_pic_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton1.setText("jButton1");
+        jButton1.setIcon(new ImageIcon(dictio.get(0).image.getPath()));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("jButton2");
+        jButton2.setIcon(new ImageIcon(dictio.get(1).image.getPath()));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("jButton3");
+        jButton3.setIcon(new ImageIcon(dictio.get(2).image.getPath()));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("jButton4");
+        jButton4.setIcon(new ImageIcon(dictio.get(3).image.getPath()));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("jButton5");
+        jButton5.setIcon(new ImageIcon(dictio.get(4).image.getPath()));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
-        jButton6.setText("jButton6");
+        jButton6.setIcon(new ImageIcon(dictio.get(5).image.getPath()));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -344,12 +346,26 @@ public class GUI_final extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                           
 
-    private void left_buttonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+    private void left_buttonActionPerformed(java.awt.event.ActionEvent evt) {
+    	if (image_index>=6) image_index = (image_index - 6) % dictio.size();
+    	else image_index = dictio.size() - (6 - image_index);
+        jButton1.setIcon(new ImageIcon(dictio.get(image_index).image.getPath()));
+        jButton2.setIcon(new ImageIcon(dictio.get((image_index+1)%dictio.size()).image.getPath()));
+        jButton3.setIcon(new ImageIcon(dictio.get((image_index+2)%dictio.size()).image.getPath()));
+        jButton4.setIcon(new ImageIcon(dictio.get((image_index+3)%dictio.size()).image.getPath()));
+        jButton5.setIcon(new ImageIcon(dictio.get((image_index+4)%dictio.size()).image.getPath()));
+        jButton6.setIcon(new ImageIcon(dictio.get((image_index+5)%dictio.size()).image.getPath()));
     }                                           
 
     private void right_buttonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+        image_index = (image_index + 6) % dictio.size();
+        jButton1.setIcon(new ImageIcon(dictio.get(image_index).image.getPath()));
+        jButton2.setIcon(new ImageIcon(dictio.get((image_index+1)%dictio.size()).image.getPath()));
+        jButton3.setIcon(new ImageIcon(dictio.get((image_index+2)%dictio.size()).image.getPath()));
+        jButton4.setIcon(new ImageIcon(dictio.get((image_index+3)%dictio.size()).image.getPath()));
+        jButton5.setIcon(new ImageIcon(dictio.get((image_index+4)%dictio.size()).image.getPath()));
+        jButton6.setIcon(new ImageIcon(dictio.get((image_index+5)%dictio.size()).image.getPath()));
+        
     }                                            
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
